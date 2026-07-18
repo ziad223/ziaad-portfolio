@@ -1143,6 +1143,27 @@
         </div>
     </footer>
 
+    <!-- Floating Contact Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/201018227412" target="_blank" class="w-14 h-14 rounded-full bg-[#25d366] text-white flex items-center justify-center text-3xl shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:scale-110 transition-all duration-300 relative group">
+            <i class="fab fa-whatsapp relative z-10"></i>
+            <div class="absolute inset-0 rounded-full bg-[#25d366] animate-ping opacity-40"></div>
+            <!-- Tooltip -->
+            <div class="absolute top-1/2 -translate-y-1/2 right-full mr-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-[var(--bg-secondary)] border border-[rgba(255,255,255,0.05)] shadow-xl px-4 py-2 rounded-xl text-sm font-bold text-[var(--text-primary)]" data-translate="tooltip_whatsapp">
+                راسلني واتساب
+            </div>
+        </a>
+        <!-- Phone -->
+        <a href="tel:+201018227412" class="w-14 h-14 rounded-full bg-[var(--accent-cyan)] text-white flex items-center justify-center text-2xl shadow-[0_0_15px_rgba(0,229,255,0.5)] hover:scale-110 transition-all duration-300 relative group">
+            <i class="fas fa-phone-alt relative z-10"></i>
+            <!-- Tooltip -->
+            <div class="absolute top-1/2 -translate-y-1/2 right-full mr-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-[var(--bg-secondary)] border border-[rgba(255,255,255,0.05)] shadow-xl px-4 py-2 rounded-xl text-sm font-bold text-[var(--text-primary)]" data-translate="tooltip_phone">
+                اتصل بي
+            </div>
+        </a>
+    </div>
+
     <div id="toast"></div>
 
     <!-- ===== SCRIPTS ===== -->
@@ -1268,6 +1289,8 @@
                 stat_4: 'كوب قهوة',
                 footer_desc: 'مطور واجهات أمامية متخصص في تحويل الأفكار الإبداعية إلى مشاريع برمجية ذكية وتفاعلية تعكس رؤيتك بأعلى معايير الجودة الممكنة.',
                 footer_links: 'روابط سريعة',
+                tooltip_whatsapp: 'راسلني واتساب',
+                tooltip_phone: 'اتصل بي',
                 hero_greeting: 'أنا',
                 hero_badge: 'مطور فرونت إند & مصمم تفاعلي',
                 hero_subtitle: 'مطور واجهات أمامية محترف | بناء أنظمة متكاملة',
@@ -1407,6 +1430,8 @@
                 stat_4: 'Cups of Coffee',
                 footer_desc: 'Frontend developer specializing in transforming creative ideas into smart and interactive software projects that reflect your vision with the highest possible quality standards.',
                 footer_links: 'Quick Links',
+                tooltip_whatsapp: 'WhatsApp Me',
+                tooltip_phone: 'Call Me',
                 hero_greeting: "I'm",
                 hero_badge: 'Frontend Developer & Interactive Designer',
                 hero_subtitle: 'Professional Frontend Developer | Building Integrated Systems',
