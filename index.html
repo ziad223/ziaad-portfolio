@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="icon" type="image/jpeg" href="./images/picture-1.jpg?v=2" />
+    <title>زياد عبدالله | مطور فرونت إند محترف - 4 سنوات خبرة</title>
+    <meta name="description" content="زياد عبدالله - مطور فرونت إند بخبرة 4 سنوات، متخصص في HTML، CSS، JavaScript، React، Next.js، وبناء أنظمة ERP و CRM متكاملة." />
+    <meta name="keywords" content="زياد عبدالله, مطور فرونت إند, Frontend Developer, React, Next.js, Tailwind, ERP, CRM, مصر" />
+    <meta name="author" content="زياد عبدالله" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ziad-dev.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="زياد عبدالله | مطور فرونت إند محترف" />
+    <meta property="og:description" content="زياد عبدالله - مطور فرونت إند بخبرة 4 سنوات، متخصص في HTML، CSS، JavaScript، React، Next.js، وبناء أنظمة ERP و CRM متكاملة." />
+    <meta property="og:image" content="./images/picture-1.jpg" />
+    <meta property="og:url" content="https://ziad-dev.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="زياد عبدالله | مطور فرونت إند محترف" />
+    <meta name="twitter:description" content="زياد عبدالله - مطور فرونت إند بخبرة 4 سنوات، متخصص في بناء مواقع وتطبيقات ويب متكاملة." />
+    <meta name="twitter:image" content="./images/picture-1.jpg" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Tailwind + AOS + Custom -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --bg-primary: #05040a;
+            --bg-secondary: #0c0a17;
+            --bg-card: rgba(12, 10, 23, 0.45);
+            --text-primary: #f4f2ff;
+            --text-secondary: #908da9;
+            --accent-purple: #7c4dff;
+            --accent-cyan: #00e5ff;
+            --accent-pink: #ff6b9d;
+            --border-glow: rgba(124, 77, 255, 0.2);
+            --gradient-main: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+            --gradient-text: linear-gradient(135deg, #a855f7, #06b6d4);
+            --shadow-glow: 0 0 40px rgba(124, 77, 255, 0.15);
+            --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .light-mode {
+            --bg-primary: #fdfdfd;
+            --bg-secondary: #f4f5f7;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --accent-purple: #7c3aed;
+            --accent-cyan: #0284c7;
+            --accent-pink: #db2777;
+            --border-glow: rgba(124, 58, 237, 0.2);
+            --shadow-glow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+        /* ===== BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background var(--transition), color var(--transition);
+            overflow-x: hidden;
+        }
+        /* ===== 3D BACKGROUND with floating particles ===== */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        .light-mode #particles-canvas {
+            opacity: 0.3;
+        }
+        /* ===== GLOWING ORBS 3D ===== */
+        .orb-3d {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            transition: opacity 0.5s ease;
+            animation: orbFloat 30s infinite alternate ease-in-out;
+        }
+        .light-mode .orb-3d {
+            opacity: 0.1;
+            mix-blend-mode: multiply;
+            filter: blur(80px);
+        }
+        .orb-3d-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-purple);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        .orb-3d-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--accent-cyan);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+        .orb-3d-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--accent-pink);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+        }
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(80px, -60px) scale(1.2) rotate(10deg); }
+            66% { transform: translate(-40px, 40px) scale(0.9) rotate(-10deg); }
+            100% { transform: translate(30px, -20px) scale(1.1) rotate(5deg); }
+        }
+
+        /* ===== LOADING SPINNER ===== */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .spinner-3d {
+            width: 70px;
+            height: 70px;
+            position: relative;
+            perspective: 200px;
+        }
+        .spinner-3d .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: spin3d 1.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+        }
+        .spinner-3d .cube div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            border: 3px solid rgba(124, 77, 255, 0.3);
+            background: rgba(124, 77, 255, 0.05);
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 0 30px rgba(124, 77, 255, 0.1);
+        }
+        .spinner-3d .cube .face1 { transform: rotateY(0deg) translateZ(35px); border-color: var(--accent-purple); }
+        .spinner-3d .cube .face2 { transform: rotateY(90deg) translateZ(35px); border-color: var(--accent-cyan); }
+        .spinner-3d .cube .face3 { transform: rotateY(180deg) translateZ(35px); border-color: var(--accent-purple); }
+        .spinner-3d .cube .face4 { transform: rotateY(-90deg) translateZ(35px); border-color: var(--accent-cyan); }
+        .spinner-3d .cube .face5 { transform: rotateX(90deg) translateZ(35px); border-color: var(--accent-pink); }
+        .spinner-3d .cube .face6 { transform: rotateX(-90deg) translateZ(35px); border-color: var(--accent-pink); }
+        @keyframes spin3d {
+            0% { transform: rotateX(0) rotateY(0); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        .loader-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* ===== GLASSMORPHISM CARDS ===== */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.2), rgba(0, 229, 255, 0.08), transparent 60%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+        .glass-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 16px 50px rgba(124, 77, 255, 0.12);
+            border-color: rgba(124, 77, 255, 0.2);
+        }
+        .glass-card:hover::before {
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.5), rgba(0, 229, 255, 0.3));
+        }
+
+        /* ===== NAV ===== */
+        .nav-link {
+            position: relative;
+            padding: 0.25rem 0;
+            font-weight: 700;
+        }
+
+        /* ===== MODERN BUTTONS ===== */
+        .btn-modern {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.85rem 2.4rem;
+            font-weight: 700;
+            border-radius: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+            z-index: 1;
+            overflow: hidden;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .btn-modern-primary {
+            background: var(--gradient-main);
+            color: #05040a;
+            box-shadow: 0 8px 28px rgba(124, 77, 255, 0.35);
+        }
+        .btn-modern-primary:hover {
+            color: #fff;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(124, 77, 255, 0.55), 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+        .btn-modern-secondary {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-glow);
+        }
+        .btn-modern-secondary:hover {
+            background: rgba(124, 77, 255, 0.08);
+            border-color: var(--accent-purple);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(124, 77, 255, 0.12);
+        }
+
+        /* ===== HERO IMAGE ===== */
+        .hero-img-container {
+            position: relative;
+            transition: var(--transition);
+            border-radius: 28px;
+            overflow: hidden;
+        }
+        .hero-img-container::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: inherit;
+            background: var(--gradient-main);
+            z-index: -1;
+            opacity: 0.4;
+            filter: blur(12px);
+            transition: var(--transition);
+        }
+        .hero-img-container:hover::after {
+            opacity: 0.8;
+            filter: blur(18px);
+        }
+        .float-slow-1 { animation: floatImage 6s ease-in-out infinite; }
+        .float-slow-2 { animation: floatImage 7s ease-in-out infinite; animation-delay: 1.5s; }
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-14px) rotate(2deg); }
+        }
+
+        /* ===== PROJECT CARDS ===== */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            backdrop-filter: blur(12px);
+        }
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.01);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 50px rgba(124, 77, 255, 0.2);
+        }
+        .project-card-img-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(5, 4, 10, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(6px);
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        /* ===== SKILL BARS ===== */
+        .skill-bar {
+            height: 8px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+            position: relative;
+        }
+        .skill-bar .fill {
+            height: 100%;
+            border-radius: 8px;
+            background: var(--gradient-main);
+            width: 0%;
+            transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* ===== PRICING CARDS ===== */
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 15px 40px rgba(124, 77, 255, 0.15);
+        }
+        .pricing-card.popular {
+            border-color: var(--accent-cyan);
+            background: linear-gradient(to bottom, rgba(0, 229, 255, 0.05), rgba(12, 10, 23, 0.4));
+        }
+        .pricing-card.popular::before {
+            content: '';
+            position: absolute;
+            inset: -1.5px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .pricing-feat i {
+            color: var(--accent-cyan);
+            margin-inline-end: 1rem;
+        }
+        .light-mode .pricing-card.popular {
+            background: linear-gradient(to bottom, rgba(0, 229, 255, 0.1), rgba(255, 255, 255, 0.7));
+        }
+
+        /* ===== INPUT ===== */
+        .modern-input {
+            width: 100%;
+            padding: 1rem 1.4rem;
+            border-radius: 14px;
+            background: rgba(12, 10, 23, 0.3);
+            border: 1.5px solid var(--border-glow);
+            color: var(--text-primary);
+            outline: none;
+            transition: var(--transition);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+        }
+        .modern-input:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.08);
+            background: rgba(12, 10, 23, 0.6);
+        }
+        .light-mode .modern-input {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .light-mode .modern-input:focus {
+            background: #fff;
+        }
+        .modern-input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--gradient-main); border-radius: 10px; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            .hero-flex { flex-direction: column-reverse; text-align: center; }
+            .hero-img-wrap { justify-content: center; }
+            .text-7xl { font-size: 3.5rem; }
+        }
+        /* glow text */
+        .glow-text {
+            text-shadow: 0 0 40px rgba(124, 77, 255, 0.2), 0 0 80px rgba(0, 229, 255, 0.05);
+        }
+        /* Toast */
+        #toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-glow);
+            z-index: 9999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+            font-weight: bold;
+        }
+        #toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <!-- ===== GLOWING 3D ORBS ===== -->
+    <div class="orb-3d orb-3d-1"></div>
+    <div class="orb-3d orb-3d-2"></div>
+    <div class="orb-3d orb-3d-3"></div>
+
+    <!-- ===== LOADING SPINNER ===== -->
+    <div id="loader">
+        <div class="spinner-3d">
+            <div class="cube">
+                <div class="face1"></div>
+                <div class="face2"></div>
+                <div class="face3"></div>
+                <div class="face4"></div>
+                <div class="face5"></div>
+                <div class="face6"></div>
+            </div>
+        </div>
+        <div class="loader-text">جاري التحميل ...</div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-[var(--border-glow)] transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-extrabold tracking-tight flex items-center gap-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--accent-cyan)] to-[var(--accent-purple)] flex items-center justify-center text-white shadow-lg">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="hidden sm:block">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="logo_first">زياد</span>
+                    <span class="text-[var(--text-primary)]" data-translate="logo_last">عبدالله</span>
+                </div>
+            </a>
+            <!-- Nav Desktop -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-bold bg-[rgba(255,255,255,0.02)] px-8 py-3.5 rounded-full border border-[rgba(255,255,255,0.05)] shadow-[0_0_15px_rgba(0,0,0,0.1)]">
+                <a href="#about" data-translate="nav_about" class="nav-link text-[var(--text-primary)]">معلومات عني</a>
+                <a href="#services" data-translate="nav_services" class="nav-link text-[var(--text-primary)]">الخدمات</a>
+                <a href="#projects" data-translate="nav_projects" class="nav-link text-[var(--text-primary)]">المشاريع</a>
+                <a href="#pricing" data-translate="nav_pricing" class="nav-link text-[var(--text-primary)]">الأسعار</a>
+                <a href="#skills" data-translate="nav_skills" class="nav-link text-[var(--text-primary)]">المهارات</a>
+                <a href="#experience" data-translate="nav_experience" class="nav-link text-[var(--text-primary)]">الخبرات</a>
+            </nav>
+            <!-- Controls -->
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:flex items-center gap-2 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] px-5 py-2.5 rounded-xl font-bold shadow-[0_4px_15px_rgba(124,77,255,0.3)] text-sm">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-translate="nav_hire">وظفني</span>
+                </a>
+                <div class="w-px h-8 bg-[var(--border-glow)] hidden sm:block mx-1"></div>
+                <button id="themeToggle" class="text-xl w-11 h-11 rounded-xl flex items-center justify-center bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.05)]">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button id="langToggle" class="text-sm font-extrabold w-11 h-11 rounded-xl flex items-center justify-center bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.05)]">
+                    <span id="langLabel">EN</span>
+                </button>
+                <button id="mobileMenuBtn" class="lg:hidden text-xl bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.05)] w-11 h-11 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden flex-col items-center gap-4 pb-6 pt-2 border-t border-[var(--border-glow)] bg-[var(--bg-secondary)] transition-all">
+            <a href="#about" data-translate="nav_about" class="nav-link text-[var(--text-primary)]">معلومات عني</a>
+            <a href="#services" data-translate="nav_services" class="nav-link text-[var(--text-primary)]">الخدمات</a>
+            <a href="#projects" data-translate="nav_projects" class="nav-link text-[var(--text-primary)]">المشاريع</a>
+            <a href="#pricing" data-translate="nav_pricing" class="nav-link text-[var(--text-primary)]">الأسعار</a>
+            <a href="#skills" data-translate="nav_skills" class="nav-link text-[var(--text-primary)]">المهارات</a>
+            <a href="#experience" data-translate="nav_experience" class="nav-link text-[var(--text-primary)]">الخبرات</a>
+            <a href="#contact" data-translate="nav_contact" class="nav-link text-[var(--text-primary)]">تواصل</a>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="pt-24 relative z-10">
+
+        <!-- ===== HERO ===== -->
+        <section id="about" class="relative min-h-[90vh] flex items-center scroll-mt-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+                <div class="hero-flex flex md:flex-row flex-col items-center gap-12">
+                    <!-- Text -->
+                    <div class="flex-1 text-center md:text-start" data-aos="fade-right" data-aos-duration="1000">
+                        <span class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--accent-cyan)] bg-[rgba(0,229,255,0.06)] px-4 py-1.5 rounded-full mb-6 border border-[var(--border-glow)]">
+                            <span class="w-2 h-2 rounded-full bg-[var(--accent-cyan)] animate-ping"></span>
+                            🚀 <span data-translate="hero_badge">مطور فرونت إند &amp; مصمم تفاعلي</span>
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight tracking-tight">
+                            <span data-translate="hero_greeting">أنا</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] glow-text"><span data-translate="logo_first">زياد</span> <span data-translate="logo_last">عبدالله</span></span>
+                        </h1>
+                        <div class="mt-5">
+                            <span class="text-xl sm:text-2xl font-bold text-[var(--text-primary)]" data-translate="hero_subtitle">مطور واجهات أمامية محترف | بناء أنظمة متكاملة</span>
+                        </div>
+                        <p class="text-lg text-[var(--text-secondary)] mt-6 max-w-2xl mx-auto md:mx-0 leading-relaxed" data-translate="hero_desc">
+                            مطور فرونت إند بخبرة 4 سنوات، متخصص في تحويل التصاميم الإبداعية إلى واجهات برمجية ذكية وتفاعلية بأعلى مستويات الدقة والأداء.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mt-10 justify-center md:justify-start">
+                            <a href="#projects" class="btn-modern btn-modern-primary" data-translate="hero_btn_projects">استكشف مشاريعي</a>
+                            <a href="#contact" class="btn-modern btn-modern-secondary" data-translate="hero_btn_contact">تواصل معي</a>
+                        </div>
+                        <!-- Social -->
+                        <div class="flex gap-5 mt-10 justify-center md:justify-start">
+                            <a href="https://github.com/ziad223" target="_blank" class="text-2xl text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition hover:scale-110"><i class="fab fa-github"></i></a>
+                            <a href="https://www.facebook.com/share/1Fun9cxk5f/" target="_blank" class="text-2xl text-[var(--text-secondary)] hover:text-[#1877f2] transition hover:scale-110"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.facebook.com/share/1Fun9cxk5f/" target="_blank" class="text-2xl text-[var(--text-secondary)] hover:text-[#0a66c2] transition hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://wa.me/201018227412" target="_blank" class="text-2xl text-[var(--text-secondary)] hover:text-[#25d366] transition hover:scale-110"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <!-- Images / Tech Graphic -->
+                    <div class="flex-1 w-full relative" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="relative w-full max-w-md mx-auto mt-10 md:mt-0">
+                            <!-- Main Image -->
+                            <div class="hero-img-container float-slow-1 w-full h-[380px] sm:h-[450px] rounded-[2rem] shadow-[0_0_60px_rgba(124,77,255,0.15)] relative z-10 border border-[var(--border-glow)]">
+                                <img src="./images/picture-1.jpg" alt="زياد عبدالله" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110 object-top" onerror="this.src='https://placehold.co/400x500/1a1828/7c4dff?text=Hero'" />
+                            </div>
+                            <!-- Floating Badge 1: Stats -->
+                            <div class="absolute -bottom-6 -right-6 sm:-right-10 z-20 glass-card p-4 rounded-2xl border border-[var(--border-glow)] float-slow-2 shadow-[0_10px_30px_rgba(0,0,0,0.4)] flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[var(--accent-purple)] to-[var(--accent-cyan)] flex items-center justify-center text-white text-xl font-bold shadow-[0_0_15px_rgba(124,77,255,0.5)]">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-2xl font-black text-[var(--text-primary)]">+200</div>
+                                    <div class="text-xs text-[var(--text-secondary)]" data-translate="stat_1">مشروع مكتمل</div>
+                                </div>
+                            </div>
+                            <!-- Floating Badge 2: Tech Stack -->
+                            <div class="absolute top-10 -left-6 sm:-left-12 z-20 glass-card p-4 rounded-2xl border border-[var(--border-glow)] float-slow-1 shadow-[0_10px_30px_rgba(0,0,0,0.4)] flex items-center gap-3">
+                                <i class="fab fa-react text-4xl text-[#61DAFB] animate-[spin_6s_linear_infinite]"></i>
+                                <div class="text-right">
+                                    <div class="text-sm font-bold text-[var(--text-primary)]">React & Next.js</div>
+                                    <div class="text-xs text-[var(--text-secondary)]">Frontend Stack</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ===== STATISTICS ===== -->
+        <section id="stats" class="py-16 relative z-10 bg-[var(--bg-secondary)] border-y border-[var(--border-glow)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-6 rounded-2xl glass-card border border-[rgba(255,255,255,0.05)]" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl text-[var(--accent-cyan)] mb-3"><i class="fas fa-project-diagram"></i></div>
+                        <div class="text-4xl font-black text-[var(--text-primary)] mb-2">+<span class="stat-num" data-target="200">0</span></div>
+                        <div class="text-[var(--text-secondary)] font-semibold" data-translate="stat_1">مشروع مكتمل</div>
+                    </div>
+                    <div class="p-6 rounded-2xl glass-card border border-[rgba(255,255,255,0.05)]" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl text-[var(--accent-purple)] mb-3"><i class="fas fa-users"></i></div>
+                        <div class="text-4xl font-black text-[var(--text-primary)] mb-2">+<span class="stat-num" data-target="30">0</span></div>
+                        <div class="text-[var(--text-secondary)] font-semibold" data-translate="stat_2">عميل سعيد</div>
+                    </div>
+                    <div class="p-6 rounded-2xl glass-card border border-[rgba(255,255,255,0.05)]" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-4xl text-[var(--accent-pink)] mb-3"><i class="fas fa-clock"></i></div>
+                        <div class="text-4xl font-black text-[var(--text-primary)] mb-2">+<span class="stat-num" data-target="4">0</span></div>
+                        <div class="text-[var(--text-secondary)] font-semibold" data-translate="stat_3">سنوات خبرة</div>
+                    </div>
+                    <div class="p-6 rounded-2xl glass-card border border-[rgba(255,255,255,0.05)]" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-4xl text-[#25d366] mb-3"><i class="fas fa-coffee"></i></div>
+                        <div class="text-4xl font-black text-[var(--text-primary)] mb-2">+<span class="stat-num" data-target="1500">0</span></div>
+                        <div class="text-[var(--text-secondary)] font-semibold" data-translate="stat_4">كوب قهوة</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICES ===== -->
+        <section id="services" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="services_title_1">الخدمات التي</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="services_title_2">أقدمها</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                    <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-4xl text-[var(--accent-purple)] mb-5 transition-transform duration-300 hover:scale-110 hover:rotate-6"><i class="fas fa-globe"></i></div>
+                        <h3 class="text-2xl font-bold" data-translate="service_1_title">مواقع تعريفية</h3>
+                        <p class="text-[var(--text-secondary)] text-base mt-3 leading-relaxed" data-translate="service_1_desc">تصميم وتطوير مواقع ويب متكاملة من الصفر للنهاية، تناسب احتياجات عملك.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-4xl text-[var(--accent-cyan)] mb-5 transition-transform duration-300 hover:scale-110 hover:rotate-6"><i class="fas fa-shopping-cart"></i></div>
+                        <h3 class="text-2xl font-bold" data-translate="service_2_title">متاجر إلكترونية</h3>
+                        <p class="text-[var(--text-secondary)] text-base mt-3 leading-relaxed" data-translate="service_2_desc">بناء متاجر إلكترونية متكاملة مع بوابات الدفع لإطلاق تجارتك بسهولة.</p>
+                    </div>
+                    <div class="glass-card p-8 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-4xl text-[var(--accent-pink)] mb-5 transition-transform duration-300 hover:scale-110 hover:rotate-6"><i class="fas fa-server"></i></div>
+                        <h3 class="text-2xl font-bold" data-translate="service_3_title">أنظمة ERP &amp; CRM</h3>
+                        <p class="text-[var(--text-secondary)] text-base mt-3 leading-relaxed" data-translate="service_3_desc">بناء أنظمة إدارة المؤسسات والعلاقات مع العملاء بواجهات احترافية وسهلة.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WORK PROCESS ===== -->
+        <section id="process" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="process_title_1">آلية</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="process_title_2">العمل</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                    <p class="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto leading-relaxed" data-translate="process_desc">
+                        خطوات مدروسة وممنهجة لضمان تسليم مشاريع بأعلى معايير الجودة والاحترافية.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                    <!-- Connecting Line -->
+                    <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[rgba(255,255,255,0.05)] -translate-y-1/2 z-0"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] text-center relative z-10 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 rounded-2xl bg-[rgba(124,77,255,0.1)] border border-[var(--accent-purple)] mx-auto flex items-center justify-center text-2xl text-[var(--accent-purple)] mb-6 shadow-[0_0_20px_rgba(124,77,255,0.2)]">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-translate="process_1_title">1. التحليل والتخطيط</h3>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed" data-translate="process_1_desc">دراسة الفكرة وتحديد المتطلبات بدقة لبناء أساس صلب للمشروع.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] text-center relative z-10 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 rounded-2xl bg-[rgba(0,229,255,0.1)] border border-[var(--accent-cyan)] mx-auto flex items-center justify-center text-2xl text-[var(--accent-cyan)] mb-6 shadow-[0_0_20px_rgba(0,229,255,0.2)]">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-translate="process_2_title">2. هندسة قواعد البيانات</h3>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed" data-translate="process_2_desc">تخطيط وبناء هيكل بيانات قوي وآمن لضمان سرعة واستقرار النظام.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] text-center relative z-10 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 rounded-2xl bg-[rgba(255,64,129,0.1)] border border-[var(--accent-pink)] mx-auto flex items-center justify-center text-2xl text-[var(--accent-pink)] mb-6 shadow-[0_0_20px_rgba(255,64,129,0.2)]">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-translate="process_3_title">3. التطوير والبرمجة</h3>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed" data-translate="process_3_desc">كتابة أكواد نظيفة وسريعة باستخدام أحدث تقنيات الويب.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] text-center relative z-10 hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[var(--accent-purple)] to-[var(--accent-cyan)] mx-auto flex items-center justify-center text-2xl text-white mb-6 shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3" data-translate="process_4_title">4. الإطلاق والمتابعة</h3>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed" data-translate="process_4_desc">اختبار المشروع بدقة ثم إطلاقه مع تقديم الدعم الفني المستمر.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS ===== -->
+        <section id="projects" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="projects_title_1">بعض من</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="projects_title_2">مشاريعنا</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                    <!-- 12 Projects -->
+                    <a href="https://ninevehautogo.com/ar" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="50">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-1.png" alt="منصة نينوي" onerror="this.src='https://placehold.co/300x180/1a1828/7c4dff?text=%D9%86%D9%8A%D9%86%D9%88%D9%8A'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_1">منصة نينوي</span><span class="text-sm text-[var(--accent-cyan)] font-mono">ninevehautogo.com</span></div>
+                    </a>
+                    <a href="https://7ajatna.com/ar" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-2.png" alt="متجر حاجاتنا" onerror="this.src='https://placehold.co/300x180/1a1828/00e5ff?text=%D8%AD%D8%A7%D8%AC%D8%A7%D8%AA%D9%86%D8%A7'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_2">متجر حاجاتنا</span><span class="text-sm text-[var(--accent-cyan)] font-mono">7ajatna.com</span></div>
+                    </a>
+                    <a href="https://supportad.sa/ar" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-3.png" alt="منصة دعم الوطن" onerror="this.src='https://placehold.co/300x180/1a1828/7c4dff?text=%D8%AF%D8%B9%D9%85+%D8%A7%D9%84%D9%88%D8%B7%D9%86'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_3">منصة دعم الوطن</span><span class="text-sm text-[var(--accent-cyan)] font-mono">supportad.sa</span></div>
+                    </a>
+                    <a href="https://bmkcstructure.com/" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-4.png" alt="شركة بشار قطامش" onerror="this.src='https://placehold.co/300x180/1a1828/00e5ff?text=BMKC'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_4">شركة بشار قطامش</span><span class="text-sm text-[var(--accent-cyan)] font-mono">bmkcstructure.com</span></div>
+                    </a>
+                    <a href="https://dkaalnjazaldhaki.com/" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-5.png" alt="شركة دقة الأنجاز الذكي" onerror="this.src='https://placehold.co/300x180/1a1828/7c4dff?text=%D8%AF%D9%82%D8%A9+%D8%A7%D9%84%D8%A7%D9%86%D8%AC%D8%A7%D8%B2'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_5">دقة الأنجاز الذكي</span><span class="text-sm text-[var(--accent-cyan)] font-mono">dkaalnjazaldhaki.com</span></div>
+                    </a>
+                    <a href="https://nemuchild.com/ar" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-6.png" alt="موقع نمو" onerror="this.src='https://placehold.co/300x180/1a1828/00e5ff?text=%D9%86%D9%85%D9%88'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_6">موقع نمو</span><span class="text-sm text-[var(--accent-cyan)] font-mono">nemuchild.com</span></div>
+                    </a>
+                    <a href="https://ppros.com.sa/" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="350">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-7.png" alt="محترفو الخصوصية" onerror="this.src='https://placehold.co/300x180/1a1828/7c4dff?text=PPROS'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_7">محترفو الخصوصية</span><span class="text-sm text-[var(--accent-cyan)] font-mono">ppros.com.sa</span></div>
+                    </a>
+                    <a href="https://koraticket.com/ar" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-8.png" alt="كورة تكت" onerror="this.src='https://placehold.co/300x180/1a1828/00e5ff?text=%D9%83%D9%88%D8%B1%D8%A9+%D8%AA%D9%83%D8%AA'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_8">كورة تكت</span><span class="text-sm text-[var(--accent-cyan)] font-mono">koraticket.com</span></div>
+                    </a>
+                    <a href="https://lcm.com.sa/" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="450">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-9.png" alt="مستشفى الرعاية الفاخرة" onerror="this.src='https://placehold.co/300x180/1a1828/7c4dff?text=LCM'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_9">الرعاية الفاخرة</span><span class="text-sm text-[var(--accent-cyan)] font-mono">lcm.com.sa</span></div>
+                    </a>
+                    <a href="https://brandclinic-pro.com/" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-10.png" alt="Brand Clinic Pro" onerror="this.src='https://placehold.co/300x180/1a1828/7c4dff?text=Project'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_10">Brand Clinic Pro</span><span class="text-sm text-[var(--accent-cyan)] font-mono">brandclinic-pro.com</span></div>
+                    </a>
+                    <a href="https://purpleartagency.com/" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="550">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-11.png" alt="وكالة الأرجواني" onerror="this.src='https://placehold.co/300x180/1a1828/00e5ff?text=Project'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_11">وكالة الأرجواني</span><span class="text-sm text-[var(--accent-cyan)] font-mono">purpleartagency.com</span></div>
+                    </a>
+                    <a href="https://purpleartagency.net/" target="_blank" class="project-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="project-card-img-wrap">
+                            <img src="./images/project-12.png" alt="وكالة الأرجواني" onerror="this.src='https://placehold.co/300x180/1a1828/7c4dff?text=Project'">
+                            <div class="project-overlay"><span class="px-5 py-2.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-extrabold rounded-xl flex items-center gap-2"><i class="fas fa-external-link-alt text-xs"></i><span data-translate="project_visit">زيارة الموقع</span></span></div>
+                        </div>
+                        <div class="p-6"><span class="block font-bold text-xl" data-translate="project_12">وكالة الأرجواني</span><span class="text-sm text-[var(--accent-cyan)] font-mono">purpleartagency.net</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRICING ===== -->
+        <section id="pricing" class="py-24 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="pricing_title_1">باقات</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="pricing_title_2">الخدمات</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                    <p class="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto" data-translate="pricing_desc">اختر الباقة التي تناسب حجم وطبيعة مشروعك. جميع الباقات تتضمن أعلى معايير الجودة والأداء.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 items-center">
+                    <!-- Package 1 -->
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-2xl text-[var(--accent-purple)] mb-4"><i class="fas fa-pager"></i></div>
+                        <h3 class="text-2xl font-bold mb-2" data-translate="pricing_1_title">مواقع تعريفية</h3>
+                        <div class="text-4xl font-black text-[var(--text-primary)] mb-4" dir="ltr"><span class="text-lg text-[var(--text-secondary)]" data-translate="pricing_starts">يبدأ من</span> $150</div>
+                        <p class="text-[var(--text-secondary)] text-sm mb-6 pb-6 border-b border-[var(--border-glow)]" data-translate="pricing_1_desc">مثالي للأفراد والشركات الناشئة لعرض خدماتهم.</p>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_1_f1">تصميم واجهة جذابة (UI/UX)</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_1_f2">متوافق مع جميع الشاشات</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_1_f3">تحسين محركات البحث SEO الأساسي</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_1_f4">لوحة تحكم بسيطة</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_f5">دعم فني مجاني (3 شهور)</span></li>
+                        </ul>
+                        <a href="#contact" class="btn-modern btn-modern-secondary w-full" data-translate="pricing_btn">اطلب الخدمة</a>
+                    </div>
+                    <!-- Package 2 -->
+                    <div class="pricing-card popular transform md:-translate-y-4 shadow-[0_20px_50px_rgba(0,229,255,0.1)]" data-aos="fade-up" data-aos-delay="200">
+                        <div class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] text-[#05040a] font-bold text-xs px-4 py-1 rounded-full shadow-lg" data-translate="pricing_popular">الأكثر طلباً</div>
+                        <div class="text-2xl text-[var(--accent-cyan)] mb-4"><i class="fas fa-shopping-cart"></i></div>
+                        <h3 class="text-2xl font-bold mb-2" data-translate="pricing_2_title">متاجر إلكترونية</h3>
+                        <div class="text-4xl font-black text-[var(--text-primary)] mb-4" dir="ltr"><span class="text-lg text-[var(--text-secondary)]" data-translate="pricing_starts">يبدأ من</span> $350</div>
+                        <p class="text-[var(--text-secondary)] text-sm mb-6 pb-6 border-b border-[var(--border-glow)]" data-translate="pricing_2_desc">متجر متكامل لبيع منتجاتك واستقبال المدفوعات.</p>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_2_f1">كل مميزات المواقع التعريفية</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_2_f2">ربط بوابات الدفع الإلكتروني</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_2_f3">لوحة تحكم متقدمة لإدارة المنتجات والطلبات</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_2_f4">نظام فواتير وتقارير مبيعات</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_f5">دعم فني مجاني (3 شهور)</span></li>
+                        </ul>
+                        <a href="#contact" class="btn-modern btn-modern-primary w-full" data-translate="pricing_btn">اطلب الخدمة</a>
+                    </div>
+                    <!-- Package 3 -->
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-2xl text-[var(--accent-pink)] mb-4"><i class="fas fa-cogs"></i></div>
+                        <h3 class="text-2xl font-bold mb-2" data-translate="pricing_3_title">أنظمة ERP & CRM</h3>
+                        <div class="text-4xl font-black text-[var(--text-primary)] mb-4" dir="ltr"><span class="text-lg text-[var(--text-secondary)]" data-translate="pricing_custom">مخصص</span></div>
+                        <p class="text-[var(--text-secondary)] text-sm mb-6 pb-6 border-b border-[var(--border-glow)]" data-translate="pricing_3_desc">أنظمة إدارة شركات مخصصة لتسهيل سير العمل.</p>
+                        <ul class="space-y-4 mb-8 flex-1">
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_3_f1">قواعد بيانات ضخمة ومعقدة</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_3_f2">نظام صلاحيات المستخدمين</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_3_f3">إدارة الموارد البشرية والمالية</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_3_f4">تقارير وتحليلات متقدمة</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><i class="fas fa-check-circle pricing-feat"></i> <span data-translate="pricing_f5">دعم فني مجاني (3 شهور)</span></li>
+                        </ul>
+                        <a href="#contact" class="btn-modern btn-modern-secondary w-full" data-translate="pricing_btn">اطلب الخدمة</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ===== SKILLS ===== -->
+        <section id="skills" class="py-24 relative z-10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="skills_title_1">مهاراتي</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="skills_title_2">التقنية</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-16">
+                    <div class="glass-card p-6 rounded-2xl border border-[var(--border-glow)]" data-aos="fade-right" data-aos-delay="50">
+                        <div class="flex justify-between text-base font-bold mb-2"><span>HTML / CSS</span><span class="skill-num text-[var(--accent-cyan)] font-mono" data-target="100">0%</span></div>
+                        <div class="skill-bar"><div class="fill" data-width="100"></div></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-[var(--border-glow)]" data-aos="fade-right" data-aos-delay="100">
+                        <div class="flex justify-between text-base font-bold mb-2"><span>JavaScript</span><span class="skill-num text-[var(--accent-cyan)] font-mono" data-target="100">0%</span></div>
+                        <div class="skill-bar"><div class="fill" data-width="100"></div></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-[var(--border-glow)]" data-aos="fade-right" data-aos-delay="150">
+                        <div class="flex justify-between text-base font-bold mb-2"><span>Tailwind CSS</span><span class="skill-num text-[var(--accent-cyan)] font-mono" data-target="100">0%</span></div>
+                        <div class="skill-bar"><div class="fill" data-width="100"></div></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-[var(--border-glow)]" data-aos="fade-right" data-aos-delay="200">
+                        <div class="flex justify-between text-base font-bold mb-2"><span>React / Next.js</span><span class="skill-num text-[var(--accent-cyan)] font-mono" data-target="100">0%</span></div>
+                        <div class="skill-bar"><div class="fill" data-width="100"></div></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-[var(--border-glow)]" data-aos="fade-right" data-aos-delay="250">
+                        <div class="flex justify-between text-base font-bold mb-2"><span>Redux Toolkit / Context</span><span class="skill-num text-[var(--accent-cyan)] font-mono" data-target="100">0%</span></div>
+                        <div class="skill-bar"><div class="fill" data-width="100"></div></div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border border-[var(--border-glow)]" data-aos="fade-right" data-aos-delay="300">
+                        <div class="flex justify-between text-base font-bold mb-2"><span>Strapi / Headless CMS</span><span class="skill-num text-[var(--accent-cyan)] font-mono" data-target="100">0%</span></div>
+                        <div class="skill-bar"><div class="fill" data-width="100"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== EXPERIENCE ===== -->
+        <section id="experience" class="py-24 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="exp_title_1">خبراتي</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="exp_title_2">العملية</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                    <p class="text-[var(--text-secondary)] mt-4 text-lg max-w-2xl mx-auto leading-relaxed" data-translate="exp_desc">
+                        مسيرة مهنية حافلة بالنجاحات مع كبرى الشركات والمؤسسات في الوطن العربي، وتقديم حلول برمجية مبتكرة واحترافية تلبي تطلعات العملاء وتتجاوز توقعاتهم.
+                    </p>
+                </div>
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Exp 1 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] hover:border-[var(--accent-cyan)] transition-colors duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent-cyan)] to-[var(--accent-purple)] flex items-center justify-center text-xl shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+                                <i class="fas fa-briefcase text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold" data-translate="exp_1_title">المصادر الرقمية (المنصورة)</h3>
+                                <span class="text-sm text-[var(--text-secondary)]" data-translate="exp_1_role">مطور واجهات أمامية</span>
+                            </div>
+                        </div>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4" data-translate="exp_1_desc">ساهمت في تطوير وبناء العديد من المنصات الرقمية المعقدة بلمسة إبداعية وكفاءة عالية لضمان تجربة مستخدم استثنائية.</p>
+                    </div>
+                    <!-- Exp 2 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] hover:border-[var(--accent-cyan)] transition-colors duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent-cyan)] to-[var(--accent-purple)] flex items-center justify-center text-xl shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+                                <i class="fas fa-briefcase text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold" data-translate="exp_2_title">الماستر (مدينة نصر)</h3>
+                                <span class="text-sm text-[var(--text-secondary)]" data-translate="exp_2_role">مهندس برمجيات</span>
+                            </div>
+                        </div>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4" data-translate="exp_2_desc">عملت على تنفيذ مشاريع برمجية متقدمة وحلول برمجية مبتكرة تواكب أحدث التقنيات العالمية في سوق العمل.</p>
+                    </div>
+                    <!-- Exp 3 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] hover:border-[var(--accent-cyan)] transition-colors duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent-cyan)] to-[var(--accent-purple)] flex items-center justify-center text-xl shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+                                <i class="fas fa-briefcase text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold" data-translate="exp_3_title">Misk Solution (السعودية)</h3>
+                                <span class="text-sm text-[var(--text-secondary)]" data-translate="exp_3_role">مطور مواقع محترف</span>
+                            </div>
+                        </div>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4" data-translate="exp_3_desc">أثبت جدارتي من خلال تطوير مواقع ومنصات لشركات سعودية كبرى، والعمل بدقة واحترافية متناهية لتلبية تطلعات السوق الخليجي.</p>
+                    </div>
+                    <!-- Exp 4 -->
+                    <div class="glass-card p-8 rounded-3xl border border-[var(--border-glow)] hover:border-[var(--accent-cyan)] transition-colors duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent-cyan)] to-[var(--accent-purple)] flex items-center justify-center text-xl shadow-[0_0_15px_rgba(0,229,255,0.3)]">
+                                <i class="fas fa-briefcase text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold" data-translate="exp_4_title">Turnado (الإمارات)</h3>
+                                <span class="text-sm text-[var(--text-secondary)]" data-translate="exp_4_role">مطور واجهات أول</span>
+                            </div>
+                        </div>
+                        <p class="text-[var(--text-secondary)] text-sm leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4" data-translate="exp_4_desc">تصميم واجهات وتطوير تجربة مستخدم رائدة لعملاء في دولة الإمارات وعملاء من كافة دول الخليج بمعايير عالمية لا تقبل المنافسة.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq" class="py-24 relative z-10">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center" data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="faq_title_1">الأسئلة</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="faq_title_2">الشائعة</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                </div>
+                <div class="mt-16 space-y-4">
+                    <div class="glass-card rounded-2xl border border-[var(--border-glow)] overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <button class="w-full px-6 py-5 text-right flex justify-between items-center font-bold text-lg hover:text-[var(--accent-cyan)] transition" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')">
+                            <span data-translate="faq_1_q">كم يستغرق بناء موقع تعريفي؟</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="hidden px-6 pb-5 text-[var(--text-secondary)] leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4" data-translate="faq_1_a">
+                            يستغرق بناء موقع تعريفي من يوم إلى 3 أسابيع، حسب المتطلبات والتفاصيل المطلوبة.
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl border border-[var(--border-glow)] overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <button class="w-full px-6 py-5 text-right flex justify-between items-center font-bold text-lg hover:text-[var(--accent-cyan)] transition" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')">
+                            <span data-translate="faq_2_q">هل توفرون خدمة الدعم الفني بعد تسليم المشروع؟</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="hidden px-6 pb-5 text-[var(--text-secondary)] leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4" data-translate="faq_2_a">
+                            بالتأكيد! نوفر دعماً فنياً مجانياً لمدة 3 شهور لجميع الباقات لضمان استقرار المشروع وحل أي مشكلة قد تواجهك.
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl border border-[var(--border-glow)] overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                        <button class="w-full px-6 py-5 text-right flex justify-between items-center font-bold text-lg hover:text-[var(--accent-cyan)] transition" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')">
+                            <span data-translate="faq_3_q">كيف يمكنني طلب خدمة؟</span>
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="hidden px-6 pb-5 text-[var(--text-secondary)] leading-relaxed border-t border-[rgba(255,255,255,0.05)] pt-4" data-translate="faq_3_a">
+                            يمكنك طلب الخدمة ببساطة عن طريق مراسلتي مباشرة عبر الواتساب وسأقوم بالرد عليك فوراً.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT ===== -->
+        <section id="contact" class="py-24 relative z-10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-4xl font-black tracking-tight"><span data-translate="contact_title_1">تواصل</span> <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="contact_title_2">معي</span></h2>
+                    <div class="w-24 h-1.5 bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)] rounded-full mx-auto mt-4 shadow-[0_0_15px_rgba(0,229,255,0.3)]"></div>
+                    <p class="text-[var(--text-secondary)] mt-4 text-lg" data-translate="contact_desc">لديك فكرة مشروع؟ أنا هنا لمساعدتك!</p>
+                </div>
+                <div class="glass-card p-8 sm:p-10 rounded-3xl mt-12 max-w-2xl mx-auto border border-[var(--border-glow)]" data-aos="zoom-in" data-aos-delay="200">
+                    <form id="contactForm" class="space-y-5 text-right" action="https://formsubmit.co/ziadabdalla846@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="رسالة جديدة من موقعك الشخصي!">
+                        <div><input type="text" name="name" placeholder="الاسم الكامل" data-translate-placeholder="contact_name" class="modern-input" required /></div>
+                        <div><input type="email" name="email" placeholder="البريد الإلكتروني" data-translate-placeholder="contact_email" class="modern-input" required /></div>
+                        <div><textarea name="message" rows="4" placeholder="رسالتك ..." data-translate-placeholder="contact_message" class="modern-input" required></textarea></div>
+                        <button type="submit" class="btn-modern btn-modern-primary w-full"><span id="submitText" data-translate="contact_submit">أرسل الرسالة</span></button>
+                    </form>
+                    <div class="flex justify-center gap-6 mt-8">
+                        <a href="https://wa.me/201018227412" target="_blank" class="text-3xl text-[var(--text-secondary)] hover:text-[#25d366] hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1Fun9cxk5f/" target="_blank" class="text-3xl text-[var(--text-secondary)] hover:text-[#1877f2] hover:scale-110 transition"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/share/1Fun9cxk5f/" target="_blank" class="text-3xl text-[var(--text-secondary)] hover:text-[#0a66c2] hover:scale-110 transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:ziadabdalla846@gmail.com" class="text-3xl text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] hover:scale-110 transition"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    <div class="mt-4 text-sm text-[var(--text-secondary)] flex flex-wrap justify-center gap-4">
+                        <span><i class="fas fa-map-marker-alt me-2 text-[var(--accent-cyan)]"></i> <span data-translate="contact_location">مصر - الشرقية - الزقازيق</span></span>
+                        <span class="hidden sm:inline">|</span>
+                        <span><i class="fas fa-phone-alt me-2 text-[#25d366]"></i> 01018227412</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span><i class="fas fa-envelope me-2 text-[var(--accent-purple)]"></i> ziadabdalla846@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-[var(--border-glow)] pt-16 pb-8 bg-[var(--bg-secondary)] transition-colors duration-300 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-start">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <a href="#" class="text-2xl font-extrabold tracking-tight flex items-center gap-2 justify-start">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--accent-cyan)] to-[var(--accent-purple)] flex items-center justify-center text-white shadow-lg">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-l from-[var(--accent-purple)] to-[var(--accent-cyan)]" data-translate="logo_first">زياد</span>
+                            <span class="text-[var(--text-primary)]" data-translate="logo_last">عبدالله</span>
+                        </div>
+                    </a>
+                    <p class="text-[var(--text-secondary)] leading-relaxed mt-4" data-translate="footer_desc">
+                        مطور واجهات أمامية متخصص في تحويل الأفكار الإبداعية إلى مشاريع برمجية ذكية وتفاعلية تعكس رؤيتك بأعلى معايير الجودة الممكنة.
+                    </p>
+                    <div class="flex gap-4 pt-2">
+                        <a href="https://github.com/ziad223" target="_blank" class="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] hover:bg-[rgba(255,255,255,0.1)] hover:scale-110 transition-all"><i class="fab fa-github"></i></a>
+                        <a href="https://www.facebook.com/share/1Fun9cxk5f/" target="_blank" class="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[#1877f2] hover:bg-[rgba(255,255,255,0.1)] hover:scale-110 transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/share/1Fun9cxk5f/" target="_blank" class="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[#0a66c2] hover:bg-[rgba(255,255,255,0.1)] hover:scale-110 transition-all"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/201018227412" target="_blank" class="w-10 h-10 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[#25d366] hover:bg-[rgba(255,255,255,0.1)] hover:scale-110 transition-all"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold text-[var(--text-primary)] mb-6" data-translate="footer_links">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors inline-block" data-translate="nav_about">معلومات عني</a></li>
+                        <li><a href="#services" class="text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors inline-block" data-translate="nav_services">الخدمات</a></li>
+                        <li><a href="#projects" class="text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors inline-block" data-translate="nav_projects">المشاريع</a></li>
+                        <li><a href="#pricing" class="text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors inline-block" data-translate="nav_pricing">الأسعار</a></li>
+                        <li><a href="#contact" class="text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors inline-block" data-translate="nav_contact">تواصل</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold text-[var(--text-primary)] mb-6" data-translate="contact_title_1">تواصل</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 text-[var(--accent-cyan)]"><i class="fas fa-map-marker-alt"></i></div>
+                            <span class="text-[var(--text-secondary)]" data-translate="contact_location">مصر - الشرقية - الزقازيق</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 text-[#25d366]"><i class="fas fa-phone-alt"></i></div>
+                            <span class="text-[var(--text-secondary)]" dir="ltr">01018227412</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 text-[var(--accent-purple)]"><i class="fas fa-envelope"></i></div>
+                            <a href="mailto:ziadabdalla846@gmail.com" class="text-[var(--text-secondary)] hover:text-[var(--accent-cyan)] transition-colors">ziadabdalla846@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-[rgba(255,255,255,0.05)] mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--text-secondary)]">
+                <div>
+                    &copy; <span id="year"></span> <span class="font-bold text-[var(--text-primary)]">زياد عبدالله</span> — <span data-translate="footer_rights">جميع الحقوق محفوظة</span>
+                </div>
+                <div>
+                    <span data-translate="footer_made">صنع بحب ❤️</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"></div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script>
+        // ============================================================
+
+
+        // ============================================================
+        // 2. LOADING
+        // ============================================================
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => loader.classList.add('hidden'), 600);
+        });
+
+        // ============================================================
+        // 3. AOS
+        // ============================================================
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // ============================================================
+        // 4. THEME
+        // ============================================================
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        let currentTheme = localStorage.getItem('theme') || 'dark';
+
+        function applyTheme(theme) {
+            document.body.classList.toggle('light-mode', theme === 'light');
+            themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', theme);
+            currentTheme = theme;
+        }
+        applyTheme(currentTheme);
+        themeToggle.addEventListener('click', function() {
+            applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        // ============================================================
+        // 5. LANGUAGE
+        // ============================================================
+        const translations = {
+            ar: {
+                logo_first: 'زياد',
+                logo_last: 'عبدالله',
+                nav_about: 'معلومات عني',
+                nav_services: 'الخدمات',
+                nav_projects: 'المشاريع',
+                nav_pricing: 'الأسعار',
+                nav_skills: 'المهارات',
+                nav_contact: 'تواصل',
+                nav_hire: 'وظفني',
+                services_title_1: 'الخدمات التي',
+                services_title_2: 'أقدمها',
+                service_1_title: 'مواقع تعريفية',
+                service_1_desc: 'تصميم وتطوير مواقع ويب متكاملة من الصفر للنهاية، تناسب احتياجات عملك.',
+                service_2_title: 'متاجر إلكترونية',
+                service_2_desc: 'بناء متاجر إلكترونية متكاملة مع بوابات الدفع لإطلاق تجارتك بسهولة.',
+                service_3_title: 'أنظمة ERP & CRM',
+                service_3_desc: 'بناء أنظمة إدارة المؤسسات والعلاقات مع العملاء بواجهات احترافية وسهلة.',
+                process_title_1: 'آلية',
+                process_title_2: 'العمل',
+                process_desc: 'خطوات مدروسة وممنهجة لضمان تسليم مشاريع بأعلى معايير الجودة والاحترافية.',
+                process_1_title: '1. التحليل والتخطيط',
+                process_1_desc: 'دراسة الفكرة وتحديد المتطلبات بدقة لبناء أساس صلب للمشروع.',
+                process_2_title: '2. هندسة قواعد البيانات',
+                process_2_desc: 'تخطيط وبناء هيكل بيانات قوي وآمن لضمان سرعة واستقرار النظام.',
+                process_3_title: '3. التطوير والبرمجة',
+                process_3_desc: 'كتابة أكواد نظيفة وسريعة باستخدام أحدث تقنيات الويب.',
+                process_4_title: '4. الإطلاق والمتابعة',
+                process_4_desc: 'اختبار المشروع بدقة ثم إطلاقه مع تقديم الدعم الفني المستمر.',
+                testi_title_1: 'آراء',
+                testi_title_2: 'العملاء',
+                testi_1_role: 'مدير شركة تقنية',
+                testi_1_desc: '"عمل احترافي جداً، سرعة في الإنجاز وتجاوب سريع مع التعديلات. الواجهات كانت تفوق التوقعات والتجربة سلسة بشكل لا يصدق. أنصح بالتعامل معه وبشدة."',
+                testi_2_role: 'رائد أعمال',
+                testi_2_desc: '"أفضل مطور واجهات تعاملت معه. الموقع الذي قام ببرمجته لي سريع جداً ومتوافق مع جميع الشاشات. لمست لديه إبداعاً في الحلول البرمجية."',
+                testi_3_role: 'مؤسس متجر إلكتروني',
+                testi_3_desc: '"احترافية، أمانة، ودقة في المواعيد. سلمني المتجر بتصميم خيالي ومميزات برمجية أضافت قيمة كبيرة لعملائي. شكراً زياد!"',
+                pricing_title_1: 'باقات',
+                pricing_starts: 'يبدأ من',
+                pricing_custom: 'مخصص',
+                pricing_title_2: 'الخدمات',
+                pricing_desc: 'اختر الباقة التي تناسب حجم وطبيعة مشروعك. جميع الباقات تتضمن أعلى معايير الجودة والأداء.',
+                pricing_btn: 'اطلب الخدمة',
+                pricing_popular: 'الأكثر طلباً',
+                pricing_1_title: 'مواقع تعريفية',
+                pricing_1_desc: 'مثالي للأفراد والشركات الناشئة لعرض خدماتهم.',
+                pricing_1_f1: 'تصميم واجهة جذابة (UI/UX)',
+                pricing_1_f2: 'متوافق مع جميع الشاشات',
+                pricing_1_f3: 'تحسين محركات البحث SEO الأساسي',
+                pricing_1_f4: 'لوحة تحكم بسيطة',
+                pricing_2_title: 'متاجر إلكترونية',
+                pricing_2_desc: 'متجر متكامل لبيع منتجاتك واستقبال المدفوعات.',
+                pricing_2_f1: 'كل مميزات المواقع التعريفية',
+                pricing_2_f2: 'ربط بوابات الدفع الإلكتروني',
+                pricing_2_f3: 'لوحة تحكم متقدمة لإدارة المنتجات والطلبات',
+                pricing_2_f4: 'نظام فواتير وتقارير مبيعات',
+                pricing_3_title: 'أنظمة ERP & CRM',
+                pricing_3_desc: 'أنظمة إدارة شركات مخصصة لتسهيل سير العمل.',
+                pricing_3_f1: 'قواعد بيانات ضخمة ومعقدة',
+                pricing_3_f2: 'نظام صلاحيات المستخدمين',
+                pricing_3_f3: 'إدارة الموارد البشرية والمالية',
+                pricing_3_f4: 'تقارير وتحليلات متقدمة',
+                nav_contact: 'تواصل',
+                contact_name: 'الاسم الكامل',
+                contact_email: 'البريد الإلكتروني',
+                contact_message: 'رسالتك ...',
+                contact_submit: 'أرسل الرسالة',
+                contact_sending: 'جاري الإرسال...',
+                contact_success: '✅ تم إرسال رسالتك بنجاح! سأتواصل معك قريباً 🤝',
+                contact_error: '❌ حدث خطأ، يرجى المحاولة لاحقاً.',
+                contact_location: 'مصر - الشرقية - الزقازيق',
+                stat_1: 'مشروع مكتمل',
+                stat_2: 'عميل سعيد',
+                stat_3: 'سنوات خبرة',
+                stat_4: 'كوب قهوة',
+                footer_desc: 'مطور واجهات أمامية متخصص في تحويل الأفكار الإبداعية إلى مشاريع برمجية ذكية وتفاعلية تعكس رؤيتك بأعلى معايير الجودة الممكنة.',
+                footer_links: 'روابط سريعة',
+                hero_greeting: 'أنا',
+                hero_badge: 'مطور فرونت إند & مصمم تفاعلي',
+                hero_subtitle: 'مطور واجهات أمامية محترف | بناء أنظمة متكاملة',
+                hero_desc: 'مطور فرونت إند بخبرة 4 سنوات، متخصص في تحويل التصاميم الإبداعية إلى واجهات برمجية ذكية وتفاعلية بأعلى مستويات الدقة والأداء.',
+                hero_btn_projects: 'استكشف مشاريعي',
+                hero_btn_contact: 'تواصل معي',
+                services_title_1: 'الخدمات التي',
+                services_title_2: 'أقدمها',
+                service_1_title: 'مواقع كاملة متكاملة',
+                service_1_desc: 'تصميم وتطوير مواقع ويب متكاملة من الصفر للنهاية، تناسب احتياجات عملك.',
+                service_2_title: 'أنظمة ERP & CRM',
+                service_2_desc: 'بناء أنظمة إدارة المؤسسات والعلاقات مع العملاء بواجهات احترافية وسهلة.',
+                service_3_title: 'تصميم UI/UX',
+                service_3_desc: 'تصميم واجهات مستخدم جذابة وتجارب تفاعلية تركز على رضا المستخدم.',
+                projects_title_1: 'بعض من',
+                projects_title_2: 'مشاريعنا',
+                project_1: 'منصة نينوي',
+                project_2: 'متجر حاجاتنا',
+                project_3: 'منصة دعم الوطن',
+                project_4: 'شركة بشار قطامش',
+                project_5: 'دقة الأنجاز الذكي',
+                project_6: 'موقع نمو',
+                project_7: 'محترفو الخصوصية',
+                project_8: 'كورة تكت',
+                project_9: 'الرعاية الفاخرة',
+                project_10: 'Brand Clinic Pro',
+                project_11: 'وكالة الأرجواني',
+                project_12: 'وكالة الأرجواني',
+                skills_title_1: 'مهاراتي',
+                skills_title_2: 'التقنية',
+                contact_title_1: 'تواصل',
+                contact_title_2: 'معي',
+                contact_desc: 'لديك فكرة مشروع؟ أنا هنا لمساعدتك!',
+                footer_rights: 'جميع الحقوق محفوظة',
+                footer_made: 'صنع بحب ❤️',
+                project_visit: 'زيارة الموقع',
+                pricing_f5: 'دعم فني مجاني (شهر واحد)',
+                faq_title_1: 'الأسئلة',
+                faq_title_2: 'الشائعة',
+                faq_1_q: 'كم يستغرق بناء موقع تعريفي؟',
+                faq_1_a: 'يستغرق بناء موقع تعريفي من يوم إلى 3 أسابيع، حسب المتطلبات والتفاصيل المطلوبة.',
+                faq_2_q: 'هل توفرون خدمة الدعم الفني بعد تسليم المشروع؟',
+                faq_2_a: 'بالتأكيد! نوفر دعماً فنياً مجانياً لمدة شهر واحد لجميع الباقات لضمان استقرار المشروع وحل أي مشكلة قد تواجهك.',
+                faq_3_q: 'كيف يمكنني طلب خدمة؟',
+                faq_3_a: 'يمكنك طلب الخدمة ببساطة عن طريق مراسلتي مباشرة عبر الواتساب وسأقوم بالرد عليك فوراً.',
+                nav_experience: 'الخبرات',
+                exp_title_1: 'خبراتي',
+                exp_title_2: 'العملية',
+                exp_desc: 'مسيرة مهنية حافلة بالنجاحات مع كبرى الشركات والمؤسسات في الوطن العربي، وتقديم حلول برمجية مبتكرة واحترافية تلبي تطلعات العملاء وتتجاوز توقعاتهم.',
+                exp_1_title: 'المصادر الرقمية (المنصورة)',
+                exp_1_role: 'مطور واجهات أمامية',
+                exp_1_desc: 'ساهمت في تطوير وبناء العديد من المنصات الرقمية المعقدة بلمسة إبداعية وكفاءة عالية لضمان تجربة مستخدم استثنائية.',
+                exp_2_title: 'الماستر (مدينة نصر)',
+                exp_2_role: 'مهندس برمجيات',
+                exp_2_desc: 'عملت على تنفيذ مشاريع برمجية متقدمة وحلول برمجية مبتكرة تواكب أحدث التقنيات العالمية في سوق العمل.',
+                exp_3_title: 'Misk Solution (السعودية)',
+                exp_3_role: 'مطور مواقع محترف',
+                exp_3_desc: 'أثبت جدارتي من خلال تطوير مواقع ومنصات لشركات سعودية كبرى، والعمل بدقة واحترافية متناهية لتلبية تطلعات السوق الخليجي.',
+                exp_4_title: 'Turnado (الإمارات)',
+                exp_4_role: 'مطور واجهات أول',
+                exp_4_desc: 'تصميم واجهات وتطوير تجربة مستخدم رائدة لعملاء في دولة الإمارات وعملاء من كافة دول الخليج بمعايير عالمية لا تقبل المنافسة.',
+            },
+            en: {
+                logo_first: 'Ziad',
+                logo_last: 'Abdalla',
+                nav_about: 'About',
+                nav_services: 'Services',
+                nav_projects: 'Projects',
+                nav_pricing: 'Pricing',
+                nav_skills: 'Skills',
+                nav_contact: 'Contact',
+                nav_hire: 'Hire Me',
+                services_title_1: 'My',
+                services_title_2: 'Services',
+                service_1_title: 'Portfolio Sites',
+                service_1_desc: 'Designing and developing complete websites from scratch to suit your needs.',
+                service_2_title: 'E-Commerce Stores',
+                service_2_desc: 'Building full e-commerce stores with payment gateways to launch easily.',
+                service_3_title: 'ERP & CRM Systems',
+                service_3_desc: 'Building systems to manage enterprises and customer relations with professional UIs.',
+                process_title_1: 'Work',
+                process_title_2: 'Process',
+                process_desc: 'Systematic and well-studied steps to ensure delivering projects with the highest quality standards.',
+                process_1_title: '1. Analysis & Planning',
+                process_1_desc: 'Studying the idea and defining requirements to build a solid foundation.',
+                process_2_title: '2. Database Architecture',
+                process_2_desc: 'Designing and building a robust and secure data structure to ensure system stability.',
+                process_3_title: '3. Development',
+                process_3_desc: 'Writing clean and fast code using the latest web technologies.',
+                process_4_title: '4. Launch & Support',
+                process_4_desc: 'Rigorous testing followed by launch and continuous technical support.',
+                testi_title_1: 'Clients',
+                testi_title_2: 'Testimonials',
+                testi_1_role: 'Tech Company Manager',
+                testi_1_desc: '"Highly professional work, fast delivery, and quick response to edits. The interfaces exceeded expectations and the experience is incredibly smooth. Highly recommended."',
+                testi_2_role: 'Entrepreneur',
+                testi_2_desc: '"The best frontend developer I have dealt with. The website is extremely fast and responsive. Truly creative software solutions."',
+                testi_3_role: 'E-commerce Founder',
+                testi_3_desc: '"Professional, honest, and punctual. Delivered a store with fantastic design and features that added great value to my customers. Thanks Ziad!"',
+                pricing_title_1: 'Service',
+                pricing_starts: 'Starts from',
+                pricing_custom: 'Custom',
+                pricing_title_2: 'Packages',
+                pricing_desc: 'Choose the package that fits your project. All packages include top quality and performance standards.',
+                pricing_btn: 'Order Now',
+                pricing_popular: 'Most Popular',
+                pricing_1_title: 'Portfolio & Landing',
+                pricing_1_desc: 'Ideal for individuals and startups to showcase services.',
+                pricing_1_f1: 'Attractive UI/UX Design',
+                pricing_1_f2: 'Fully Responsive',
+                pricing_1_f3: 'Basic SEO Optimization',
+                pricing_1_f4: 'Simple Dashboard',
+                pricing_2_title: 'E-Commerce Stores',
+                pricing_2_desc: 'Complete store to sell products and receive payments.',
+                pricing_2_f1: 'All Portfolio Features',
+                pricing_2_f2: 'Payment Gateways Integration',
+                pricing_2_f3: 'Advanced Products & Orders Dashboard',
+                pricing_2_f4: 'Invoicing & Sales Reports',
+                pricing_3_title: 'ERP & CRM Systems',
+                pricing_3_desc: 'Custom enterprise systems to streamline workflow.',
+                pricing_3_f1: 'Large & Complex Databases',
+                pricing_3_f2: 'Users & Roles Management',
+                pricing_3_f3: 'HR & Financial Management',
+                pricing_3_f4: 'Advanced Reports & Analytics',
+                nav_contact: 'Contact',
+                contact_name: 'Full Name',
+                contact_email: 'Email Address',
+                contact_message: 'Your Message ...',
+                contact_submit: 'Send Message',
+                contact_sending: 'Sending...',
+                contact_success: '✅ Your message has been sent! I\'ll get back to you soon 🤝',
+                contact_error: '❌ An error occurred, please try again later.',
+                contact_location: 'Egypt - Sharqia - Zagazig',
+                stat_1: 'Completed Projects',
+                stat_2: 'Happy Clients',
+                stat_3: 'Years Experience',
+                stat_4: 'Cups of Coffee',
+                footer_desc: 'Frontend developer specializing in transforming creative ideas into smart and interactive software projects that reflect your vision with the highest possible quality standards.',
+                footer_links: 'Quick Links',
+                hero_greeting: "I'm",
+                hero_badge: 'Frontend Developer & Interactive Designer',
+                hero_subtitle: 'Professional Frontend Developer | Building Integrated Systems',
+                hero_desc: 'Frontend Developer with 4 years of experience, specializing in turning creative designs into smart, interactive user interfaces with top precision and performance.',
+                hero_btn_projects: 'Explore My Work',
+                hero_btn_contact: 'Contact Me',
+                services_title_1: 'Services I',
+                services_title_2: 'Provide',
+                service_1_title: 'Complete Websites',
+                service_1_desc: 'Design and develop full-stack websites from scratch to finish, tailored to your business needs.',
+                service_2_title: 'ERP & CRM Systems',
+                service_2_desc: 'Build enterprise management and customer relationship systems with professional, easy-to-use interfaces.',
+                service_3_title: 'UI/UX Design',
+                service_3_desc: 'Design attractive user interfaces and interactive experiences focused on user satisfaction.',
+                projects_title_1: 'Some of',
+                projects_title_2: 'Our Projects',
+                project_1: 'Nineveh Platform',
+                project_2: '7ajatna Store',
+                project_3: 'Support Al-Watan',
+                project_4: 'BMKC Structure',
+                project_5: 'Dkaa Al-Najaz',
+                project_6: 'Nemo Child',
+                project_7: 'PPROS',
+                project_8: 'Kora Ticket',
+                project_9: 'Luxury Care',
+                project_10: 'Brand Clinic Pro',
+                project_11: 'Purple Art Agency',
+                project_12: 'Purple Art Agency',
+                skills_title_1: 'Technical',
+                skills_title_2: 'Skills',
+                contact_title_1: 'Get In',
+                contact_title_2: 'Touch',
+                contact_desc: 'Have a project idea? I\'m here to help!',
+                footer_rights: 'All Rights Reserved',
+                footer_made: 'Made with love ❤️',
+                project_visit: 'Visit Website',
+                pricing_f5: 'Free Tech Support (1 Month)',
+                faq_title_1: 'Common',
+                faq_title_2: 'Questions',
+                faq_1_q: 'How long does it take to build a portfolio?',
+                faq_1_a: 'Building a portfolio takes from a day to 3 weeks, depending on the requirements and details.',
+                faq_2_q: 'Do you provide tech support after project delivery?',
+                faq_2_a: 'Absolutely! We offer 1 month of free technical support for all packages to ensure stability and fix any issues.',
+                faq_3_q: 'How can I request a service?',
+                faq_3_a: 'You can simply request a service by messaging me directly on WhatsApp and I will reply immediately.',
+                nav_experience: 'Experience',
+                exp_title_1: 'My',
+                exp_title_2: 'Experience',
+                exp_desc: 'A successful career with major companies in the Arab world, delivering innovative and professional software solutions that exceed client expectations.',
+                exp_1_title: 'Al-Masader Al-Raqmiya (Mansoura)',
+                exp_1_role: 'Frontend Developer',
+                exp_1_desc: 'Contributed to developing complex digital platforms with a creative touch and high efficiency to ensure an exceptional user experience.',
+                exp_2_title: 'Al-Master (Nasr City)',
+                exp_2_role: 'Software Engineer',
+                exp_2_desc: 'Implemented advanced software projects and innovative solutions using the latest global technologies.',
+                exp_3_title: 'Misk Solution (Saudi Arabia)',
+                exp_3_role: 'Professional Web Developer',
+                exp_3_desc: 'Proven track record of developing websites and platforms for major Saudi companies with high precision to meet Gulf market expectations.',
+                exp_4_title: 'Turnado (UAE)',
+                exp_4_role: 'Senior Frontend Developer',
+                exp_4_desc: 'Designed interfaces and developed leading user experiences for clients in the UAE and the entire Gulf region with unbeatable global standards.',
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'ar';
+
+        function applyLanguage(lang) {
+            const t = translations[lang];
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (t[key]) el.textContent = t[key];
+            });
+            document.querySelectorAll('[data-translate-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-translate-placeholder');
+                if (t[key]) el.placeholder = t[key];
+            });
+            document.getElementById('langLabel').textContent = lang === 'ar' ? 'EN' : 'AR';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            localStorage.setItem('lang', lang);
+            currentLang = lang;
+        }
+
+        // ============================================================
+        // 6. MOBILE MENU
+        // ============================================================
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileBtn.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            }
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // ============================================================
+        // 7. YEAR
+        // ============================================================
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // ============================================================
+        // 8. CONTACT FORM
+        // ============================================================
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerHTML = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btnText = document.getElementById('submitText');
+            const originalText = btnText.textContent;
+            const currentRoles = translations[currentLang] || translations['ar'];
+            btnText.textContent = currentRoles['contact_sending'] || 'Sending...';
+            
+            fetch('https://formsubmit.co/ajax/ziadabdalla846@gmail.com', {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                btnText.textContent = originalText;
+                showToast(currentRoles['contact_success']);
+                this.reset();
+            })
+            .catch(error => {
+                btnText.textContent = originalText;
+                showToast(currentRoles['contact_error']);
+            });
+        });
+
+        // ============================================================
+        // 9. SKILL BARS
+        // ============================================================
+        function animateSkills() {
+            document.querySelectorAll('.skill-bar .fill').forEach(bar => {
+                const w = bar.getAttribute('data-width');
+                bar.style.width = w + '%';
+            });
+            document.querySelectorAll('.skill-num').forEach(num => {
+                const target = parseInt(num.getAttribute('data-target'), 10);
+                let current = 0;
+                const duration = 1200;
+                const increment = target / (duration / 16);
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        num.textContent = target + '%';
+                        clearInterval(timer);
+                    } else {
+                        num.textContent = Math.floor(current) + '%';
+                    }
+                }, 16);
+            });
+        }
+
+        const skillsSection = document.getElementById('skills');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkills();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        observer.observe(skillsSection);
+
+        // ============================================================
+        // 9.5 STATISTICS BARS
+        // ============================================================
+        function animateStats() {
+            document.querySelectorAll('.stat-num').forEach(num => {
+                const target = parseInt(num.getAttribute('data-target'), 10);
+                let current = 0;
+                const increment = target / 60; // 60 frames
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        num.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        num.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+        
+        const statsSection = document.getElementById('stats');
+        if (statsSection) {
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        statObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            statObserver.observe(statsSection);
+        }
+
+        // ============================================================
+        // 10. VANILLA TILT
+        // ============================================================
+        VanillaTilt.init(document.querySelectorAll(".pricing-card"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2
+        });
+        VanillaTilt.init(document.querySelectorAll(".project-card"), {
+            max: 10,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.3
+        });
+
+
+
+        const langToggle = document.getElementById('langToggle');
+        applyLanguage(currentLang);
+        langToggle.addEventListener('click', function() {
+            applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+        });
+
+        console.log('🚀 موقع زياد عبدالله - مطور فرونت إند محترف');
+        console.log('📞 01018227412 | ✉️ ziadabdalla846@gmail.com');
+    </script>
+</body>
+</html>
